@@ -68,7 +68,7 @@ resource "google_workflows_workflow" "sql_import" {
     instanceName     = var.sql_instance
     databases        = jsonencode(var.import_databases)
     gcsBucket        = var.import_uri
-    exportedInstance = split("/", var.import_uri)[3]
+    exportedInstance = split("/", var.import_uri)[2]
     dbType           = split("_", data.google_sql_database_instance.import_instance.database_version)[0]
   })
 }
